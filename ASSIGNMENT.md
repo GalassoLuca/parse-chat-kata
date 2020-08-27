@@ -1,162 +1,200 @@
 # Split the chat phrases
 
-## Chat description
-1. all the sentences are created like `hh:mm:ss`  `customer/user name`  `:`  `sentence`
-2. the first occurrence is from the customer
-3. the second occurrence could be customer or agent
+The following is a **TDD Kata**, an exercise in _coding_, _refactoring_ and _test-first_.
 
-## Step 1
-Given the input `today Luca : hello world.`the output should be like
+## Description
+
+The goal of this program is to parse a string chat: given a string input, the program should produce an array of sentences as output, according to the following specification.
+
+## Before you start
+
+- Try not to read ahead, do one task at a time!
+- Make sure you only test for correct inputs;
+- You may use whatever programming language you prefer;
+- You should commit your code on GitHub or any other SCM repository you prefer;
+- You should release your work under an OSI-approved open-source license of your choice;
+
+## What is a chat?
+
+In our system, one of the data structure we have is the chat structure.
+
+A chat is a list of sentences, diveded by the hour in which the message was written, followed by the name of the author, and the sentence at the end.
+
+Here is the most complete example of a chat.
+
+```
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus.
+14:27:00 Customer : Pellentesque cursus maximus felis, pharetra porta purus aliquet viverra.
+14:27:47 Agent : Vestibulum tempor diam eu leo molestie eleifend.
+```
+
+We can say that:
+
+- all the sentences are created like `hh:mm:ss` `customer/agent name` `:` `sentence`
+- the first occurrence is from the customer
+- the second occurrence could be either customer or agent
+
+## The Kata
+
+**Note**: for simplicity the following example use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
+
+## Step 1 (single sentence)
+
+Given the input
+
+```
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+```
+
+The output should be
+
 ```
 [{
-	text: 'today Luca : hello world.'
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  type: 'customer'
 }]
 ```
 
-## Step 2
+## Step 2 (two sentences)
+
 Given the input
+
 ```
-today Luca : hi there. \ntoday Andrea : hello
-today Andrea: hi again... are you there? 
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus.
 ```
+
 The output should be
+
 ```
 [{
-	text: 'today Luca : hi there. \n'
-},{
-	text: 'today Andrea : hello'
-},{
-	text: 'today Andrea: hi again... are you there?'
-}]
-```
-
-## Step 3
- Step 2
-Given the input
-```
-14:30:00 Luca : hi there. \14:30:35 Andrea : hello
-14:45:18 Andrea: hi again... are you there? 
-```
-The output should be
-```
-[{
-	text: '14:30:00 Luca : hi there. \n'
-},{
-	text: '14:30:35 Andrea : hello'
-},{
-	text: '14:45:18 Andrea: hi again... are you there?'
-}]
-```
-
-## Step 4
-Given the input
-```
-14:30:00 Luca : hi there. \14:30:35 Andrea : hello
-14:45:18 Andrea: hi again... are you there? 
-```
-The output should be
-```
-[{
-	date: '14:30:00',
-	author: 'Luca',
-	message: 'hi there. \n'
-},{
-	date: '14:30:35',
-	author: 'Andrea',
-	message: 'hello'
-},{
-	date: '14:45:18',
-	author: 'Andrea',
-	message 'hi again... are you there?'
-}]
-```
-
-## Step 5
-In the chat there are only 2 users
-Given the input
-```
-14:30:00 Lerna ø A'sd : hi there
-
-14:30:05 Andrea: I Lerna, how can i help you?
-
-14:30:15 Lerna ø A'sd : I'm having troubles with my mac: it is completly dead.
-
-14:30:35 Andrea : I am sorry for that. May you give me the serial number of your mac?
-
-14:45:18 Lerna ø A'sd : really?? goodbye!!!!
-```
-The output should be
-```
-[{
-	date: '14:30:00',
-	author: 'Lerna ø A'sd',
-	message: 'hi there'
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n',
+  type: 'customer'
 }, {
-	date: '14:30:05',
-	author: 'Andrea'
-	message: 'I Lerna, how can i help you?'
-}, {
-	date: '14:30:15'
-	author: 'Lerna ø A'sd'
-	message: 'I'm having troubles with my mac: it is completly dead.'
-}, {
-	date: '14:30:35',
-	author: 'Andrea',
-	message: 'I am sorry for that. May you give me the serial number of your mac?'
-}, {
-	date: '14:45:18',
-	author: 'Lerna ø A'sd',
-	message 'really?? goodbye!!!!'
+  date: '14:26:15',
+  mention: '14:26:15 Agent : ',
+  sentence: 'Aliquam non cursus erat, ut blandit lectus.',
+  type: 'agent'
 }]
 ```
 
+## Step 3 (full chat)
 
-## Step 6 – edge cases
-The name can’t have more than 25 characters
 Given the input
+
 ```
-14:30:00 Lerna ø A'sd : hi there, i'm luce and today at 14:30:01 i had a lot of issue using my mac, for example: it is completly dead. 14:30:35 Andrea : I am sorry for that. May you give me the serial number of your mac?
-14:45:18 Lerna ø A'sd : really?? goodbye!!!!
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus.
+14:27:00 Customer : Pellentesque cursus maximus felis, pharetra porta purus aliquet viverra.
+14:27:47 Agent : Vestibulum tempor diam eu leo molestie eleifend.
 ```
+
 The output should be
+
 ```
 [{
-	date: '14:30:00',
-	author: 'Lerna ø A'sd',
-	message: 'hi there, i'm luce and today at 14:30:01 i had a lot of issue using my mac, for example: it is completly dead.'
-},{
-	date: '14:30:35',
-	author: 'Andrea',
-	message: 'I am sorry for that. May you give me the serial number of your mac?'
-},{
-	date: '14:45:18',
-	author: 'Lerna ø A'sd',
-	message 'really?? goodbye!!!!'
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n',
+  type: 'customer'
+}, {
+  date: '14:26:15',
+  mention: '14:26:15 Agent : ',
+  sentence: 'Aliquam non cursus erat, ut blandit lectus.\n',
+  type: 'agent'
+}, {
+  date: '14:27:00',
+  mention: '14:27:00 Customer : ',
+  sentence: 'Pellentesque cursus maximus felis, pharetra porta purus aliquet viverra.\n',
+  type: 'customer'
+}, {
+  date: '14:27:47',
+  mention: '14:27:47 Agent : ',
+  sentence: 'Vestibulum tempor diam eu leo molestie eleifend.',
+  type: 'agent'
 }]
 ```
 
-## Step 4bis
-Given the input from 4, the output should be like:
+## Step 4 (two customer mentions as start)
+
+Given the input
+
+```
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+14:27:00 Customer : Pellentesque cursus maximus felis, pharetra porta purus aliquet viverra.
+14:27:47 Agent : Vestibulum tempor diam eu leo molestie eleifend.
+```
+
+The output should be
+
 ```
 [{
-	date: '14:30:00',
-	author: 'Luca',
-	message: 'hi there. \n',
-	from: 16,
-	to: 27
-},{
-	date: '14:30:35',
-	author: 'Andrea',
-	message: 'hello',
-	from: 27,
-	to: 50
-},{
-	date: '14:45:18',
-	author: 'Andrea',
-	message 'hi again... are you there?',
-	from: 50,
-	to: 95
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n',
+  type: 'customer'
+}, {
+  date: '14:27:00',
+  mention: '14:27:00 Customer : ',
+  sentence: 'Pellentesque cursus maximus felis, pharetra porta purus aliquet viverra.\n',
+  type: 'customer'
+}, {
+  date: '14:27:47',
+  mention: '14:27:47 Agent : ',
+  sentence: 'Vestibulum tempor diam eu leo molestie eleifend.',
+  type: 'agent'
 }]
 ```
 
+## Step 5 (date splitting)
 
+Given the input
+
+```
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus.
+```
+
+The output should be
+
+```
+[{
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  type: 'customer'
+}, {
+  date: '14:26:15',
+  mention: '14:26:15 Agent : ',
+  sentence: 'Aliquam non cursus erat, ut blandit lectus.',
+  type: 'agent'
+}]
+```
+
+## Step 6 (ignore extra dates)
+
+Given the input
+
+```
+14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.14:26:15 Agent : I received it at 12:24:48, ut blandit lectus.
+```
+
+The output should be
+
+```
+[{
+  date: '14:24:32',
+  mention: '14:24:32 Customer : ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  type: 'customer'
+}, {
+  date: '14:26:15',
+  mention: '14:26:15 Agent : ',
+  sentence: 'I received it at 12:24:48, ut blandit lectus.',
+  type: 'agent'
+}]
+```

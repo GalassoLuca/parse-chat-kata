@@ -11,7 +11,7 @@ The goal of this program is to parse a string chat: given a string input, the pr
 - Try not to read ahead, do one task at a time!
 - Make sure you only test for correct inputs;
 - You may use whatever programming language you prefer;
-- You should commit your code on GitHub or any other SCM repository you prefer;
+- You should commit your code on GitHub (or any other SCM repository you prefer), so as to show your incremental approach;
 - You should release your work under an OSI-approved open-source license of your choice;
 
 ## What is a chat?
@@ -20,7 +20,7 @@ In our system, one of the data structure we have is the chat structure.
 
 A chat is a list of sentences, diveded by the hour in which the message was written, followed by the name of the author, and the sentence at the end.
 
-Here is the most complete example of a chat.
+Here is the most complete example of a chat:
 
 ```
 14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -31,13 +31,13 @@ Here is the most complete example of a chat.
 
 We can say that:
 
-- all the sentences are created like `hh:mm:ss` `customer/agent name` `:` `sentence`
+- each piece of the chat is composed by `hh:mm:ss`, `customer/agent name`, `:` and `sentence`
 - the first occurrence is from the customer
 - the second occurrence could be either customer or agent
 
 ## The Kata
 
-**Note**: for simplicity the following example use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
+**Note**: for simplicity the following examples use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
 
 ### Step 1 (single sentence)
 
@@ -198,3 +198,18 @@ The output should be
   type: 'agent'
 }]
 ```
+
+## General requirements
+
+The goal is to support the cases listed above in the best way you can. The score will depend on the following evaluation criteria (alphabetically sorted):
+
+- Code notes/comments (if needed)
+- Code quality
+- Coding style
+- Knowledge of the language
+- Tests
+- Tool architecture
+
+**IMPORTANT:** Provide a README with instructions on how to compile and run the application.
+
+**CODE SUBMISSION:** Add the code to your own Github account and send us the link.

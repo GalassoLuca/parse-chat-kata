@@ -4,7 +4,7 @@ The following is a **TDD Kata**, an exercise in _coding_, _refactoring_ and _tes
 
 ## Description
 
-The goal of this program is to parse a string chat: given a string input, the program should produce an array of sentences as output, according to the following specification.
+The goal is to parse a string chat: given a string input, the program should produce an array of sentences as output, according to the following specification.
 
 ## Before you start
 
@@ -201,14 +201,7 @@ The output should be
 
 ## General requirements
 
-The goal is to support the cases listed above in the best way you can. The score will depend on the following evaluation criteria (alphabetically sorted):
-
-- Code notes/comments (if needed)
-- Code quality
-- Coding style
-- Knowledge of the language
-- Tests
-- Tool architecture
+The goal is to support the cases listed above in the best way you can. 
 
 **IMPORTANT:** Provide a README with instructions on how to compile and run the application.
 

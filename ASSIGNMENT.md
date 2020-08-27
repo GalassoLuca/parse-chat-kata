@@ -39,7 +39,7 @@ We can say that:
 
 **Note**: for simplicity the following example use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
 
-## Step 1 (single sentence)
+### Step 1 (single sentence)
 
 Given the input
 
@@ -58,7 +58,7 @@ The output should be
 }]
 ```
 
-## Step 2 (two sentences)
+### Step 2 (two sentences)
 
 Given the input
 
@@ -83,7 +83,7 @@ The output should be
 }]
 ```
 
-## Step 3 (full chat)
+### Step 3 (full chat)
 
 Given the input
 
@@ -120,7 +120,7 @@ The output should be
 }]
 ```
 
-## Step 4 (two customer mentions as start)
+### Step 4 (two customer mentions as start)
 
 Given the input
 
@@ -151,7 +151,7 @@ The output should be
 }]
 ```
 
-## Step 5 (date splitting)
+### Step 5 (date splitting)
 
 Given the input
 
@@ -175,7 +175,7 @@ The output should be
 }]
 ```
 
-## Step 6 (ignore extra dates)
+### Step 6 (ignore extra dates)
 
 Given the input
 

@@ -11,7 +11,7 @@ The goal is to parse a string chat: given a string input, the program should pro
 - Try not to read ahead, do one task at a time!
 - Make sure you only test for correct inputs;
 - You may use whatever programming language you prefer;
-- You should commit your code on GitHub (or any other SCM repository you prefer), so as to show your incremental approach;
+- You should commit your code on GitHub (or any other SCM repository you prefer);
 - You should release your work under an OSI-approved open-source license of your choice;
 
 ## What is a chat?

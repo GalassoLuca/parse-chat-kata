@@ -37,7 +37,7 @@ We can say that:
 
 ## The Kata
 
-**Note**: for simplicity the following examples use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
+**Note**: for simplicity, the following examples use "Customer" as customer name, and "Agent" as agent name, but they might be random strings like "Luca", "Irene" or even "name surname"
 
 ### Step 1 (single sentence)
 

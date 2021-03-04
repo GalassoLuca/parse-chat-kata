@@ -41,6 +41,8 @@ We can say that:
 
 ### Step 1 (single sentence)
 
+_note:_ an example only with a sentence
+
 Given the input
 
 ```
@@ -59,6 +61,8 @@ The output should be
 ```
 
 ### Step 2 (two sentences)
+
+_note:_ an example with two sentences divided by new line character
 
 Given the input
 
@@ -84,6 +88,8 @@ The output should be
 ```
 
 ### Step 3 (full chat)
+
+_note:_ an example with more sentences from Customer and Agent
 
 Given the input
 
@@ -122,6 +128,8 @@ The output should be
 
 ### Step 4 (two customer mentions as start)
 
+_note_ an example with two customer mentions as start
+
 Given the input
 
 ```
@@ -153,6 +161,8 @@ The output should be
 
 ### Step 5 (date splitting)
 
+_note:_ an example in which the sentences are not divided by the new line character
+
 Given the input
 
 ```
@@ -177,6 +187,8 @@ The output should be
 
 ### Step 6 (ignore extra dates)
 
+_note:_ an example with a date in the text of the Agent
+
 Given the input
 
 ```
@@ -200,6 +212,8 @@ The output should be
 ```
 
 ### Step 7 - Extra (missing colon after the names)
+
+_note_ an example in which there is no colon after both Agent and Customer names
 
 Given the input
 

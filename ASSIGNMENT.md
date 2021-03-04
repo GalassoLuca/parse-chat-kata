@@ -128,7 +128,7 @@ The output should be
 
 ### Step 4 (two customer mentions as start)
 
-_note_ an example with two customer mentions as start
+_note:_ an example with two customer mentions as start
 
 Given the input
 
@@ -213,7 +213,7 @@ The output should be
 
 ### Step 7 - Extra (missing colon after the names)
 
-_note_ an example in which there is no colon after both Agent and Customer names
+_note:_ an example in which there is no colon after both Agent and Customer names
 
 Given the input
 

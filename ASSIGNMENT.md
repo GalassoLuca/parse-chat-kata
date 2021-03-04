@@ -11,7 +11,7 @@ The goal is to parse a string chat: given a string input, the program should pro
 - Try not to read ahead, do one task at a time!
 - Make sure you only test for correct inputs;
 - You may use whatever programming language you prefer;
-- You should commit your code on GitHub (or any other SCM repository you prefer), so as to show your incremental approach;
+- You should commit your code on GitHub (or any other SCM repository you prefer);
 - You should release your work under an OSI-approved open-source license of your choice;
 
 ## What is a chat?
@@ -41,6 +41,8 @@ We can say that:
 
 ### Step 1 (single sentence)
 
+_note:_ an example only with a sentence
+
 Given the input
 
 ```
@@ -59,6 +61,8 @@ The output should be
 ```
 
 ### Step 2 (two sentences)
+
+_note:_ an example with two sentences divided by new line character
 
 Given the input
 
@@ -84,6 +88,8 @@ The output should be
 ```
 
 ### Step 3 (full chat)
+
+_note:_ an example with more sentences from Customer and Agent
 
 Given the input
 
@@ -122,6 +128,8 @@ The output should be
 
 ### Step 4 (two customer mentions as start)
 
+_note_ an example with two customer mentions as start
+
 Given the input
 
 ```
@@ -153,6 +161,8 @@ The output should be
 
 ### Step 5 (date splitting)
 
+_note:_ an example in which the sentences are not divided by the new line character
+
 Given the input
 
 ```
@@ -177,6 +187,8 @@ The output should be
 
 ### Step 6 (ignore extra dates)
 
+_note:_ an example with a date in the text of the Agent
+
 Given the input
 
 ```
@@ -194,6 +206,32 @@ The output should be
 }, {
   date: '14:26:15',
   mention: '14:26:15 Agent : ',
+  sentence: 'I received it at 12:24:48, ut blandit lectus.',
+  type: 'agent'
+}]
+```
+
+### Step 7 - Extra (missing colon after the names)
+
+_note_ an example in which there is no colon after both Agent and Customer names
+
+Given the input
+
+```
+14:24:32 Customer Lorem ipsum dolor sit amet, consectetur adipiscing elit.14:26:15 Agent I received it at 12:24:48, ut blandit lectus.
+```
+
+The output should be
+
+```
+[{
+  date: '14:24:32',
+  mention: '14:24:32 Customer ',
+  sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  type: 'customer'
+}, {
+  date: '14:26:15',
+  mention: '14:26:15 Agent ',
   sentence: 'I received it at 12:24:48, ut blandit lectus.',
   type: 'agent'
 }]
